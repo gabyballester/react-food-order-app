@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Card from '../UI/Card/';
 import MealItem from './MealItem';
 import classes from './AvailableMeals.module.css';
-const baseUrl = 'https://food-order-app-26d19-default-rtdb.firebaseio.com'
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
@@ -12,6 +11,7 @@ const AvailableMeals = () => {
 
   useEffect(() => {
     const fetchMeals = async () => {
+      const baseUrl = 'https://food-order-app-26d19-default-rtdb.firebaseio.com'
       const response = await fetch(`${baseUrl}/meals.json`);
       if (!response.ok) {
         throw new Error('Something went wrong!');
@@ -29,15 +29,15 @@ const AvailableMeals = () => {
           price: responseData[key].price,
         })
       }
-      
-       setMeals(loadedMeals)
-       setIsLoading(false);
+
+      setMeals(loadedMeals)
+      setIsLoading(false);
     }
-    fetchMeals().catch((error) =>{
+    fetchMeals().catch((error) => {
       setHttpError(error.message)
       setIsLoading(false);
     });
-    
+
   }, [])
 
   if (isLoading) {

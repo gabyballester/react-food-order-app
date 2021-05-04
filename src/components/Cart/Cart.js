@@ -27,9 +27,8 @@ const Cart = (props) => {
     setIsCheckout(true);
   };
 
-  const baseUrl = 'https://food-order-app-26d19-default-rtdb.firebaseio.com/'
-
   const submitOrderHandler = async (userData) => {
+    const baseUrl = 'https://food-order-app-26d19-default-rtdb.firebaseio.com/'
     setIsSubmitting(true);
     await fetch(`${baseUrl}/orders.json`, {
       method: 'POST',
@@ -81,15 +80,15 @@ const Cart = (props) => {
   const isSubmittingModalContent = <p>Sending order data...</p>;
 
   const didSubmitModalContent =
-  <Fragment>
-     <p>Order sent successfully!</p>
-     <div className={classes.actions}>
-      <button
-        className={classes.button}
-        onClick={props.onClose}
-      >Close</button>
-    </div>
-  </Fragment>
+    <Fragment>
+      <p>Order sent successfully!</p>
+      <div className={classes.actions}>
+        <button
+          className={classes.button}
+          onClick={props.onClose}
+        >Close</button>
+      </div>
+    </Fragment>
 
   return (
     <Modal onClose={props.onClose}>
