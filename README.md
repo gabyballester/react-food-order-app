@@ -59,5 +59,17 @@ Use this json file in order to populate de firebase realtime database:
 `yarn start`
 ***
 #### 📌Screenshots: 
+#### Screenshots: 
+####
+📷 Menu
+#####
 ![screenshot1](screenshots/Screenshot_1.jpg)
+####
+📷 Order checkout
+#####
+![screenshot3](screenshots/Screenshot_3.jpg)
+####
+📷 Order received into firebase
+#####
+![screenshot3](screenshots/Screenshot_4.jpg)
 
