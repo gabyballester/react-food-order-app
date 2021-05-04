@@ -48,7 +48,7 @@ Use this json file in order to populate de firebase realtime database:
 ]
 ```
 ##
-##### 5. The DB should look this way
+##### 5. The firebase realtime DB should look this way
 ![screenshot1](screenshots/Screenshot_2.jpg)
 
 ***
@@ -59,11 +59,14 @@ Use this json file in order to populate de firebase realtime database:
 `yarn start`
 ***
 #### 📌Screenshots: 
-#### Screenshots: 
 ####
 📷 Menu
 #####
 ![screenshot1](screenshots/Screenshot_1.jpg)
+####
+📷 Adding / removing items
+#####
+![screenshot3](screenshots/Screenshot_6.jpg)
 ####
 📷 Order checkout
 #####
