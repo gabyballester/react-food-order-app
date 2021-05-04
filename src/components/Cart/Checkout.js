@@ -1,38 +1,60 @@
-import {useRef} from 'react';
+import { useRef } from 'react';
 import classes from './Checkout.module.css';
 
+const isEmpty = value => value.trm() === '';
+const isFiveChars = value => value.trim().length === 5;
+
 const Checkout = (props) => {
-const nameInputRef = useRef();
-const streetInputRef = useRef();
-const postalCodeInputRef = useRef();
-const cityInputRef = useRef();
+  const nameInputRef = useRef();
+  const streetInputRef = useRef();
+  const postalCodeInputRef = useRef();
+  const cityInputRef = useRef();
 
   const confirmHandler = (event) => {
     event.preventDefault();
 
+    // catching refs
     const enteredName = nameInputRef.current.value;
     const enteredStreet = streetInputRef.current.value;
     const enteredPostalCode = postalCodeInputRef.current.value;
     const enteredCity = cityInputRef.current.value;
+
+    // items validation
+    const enteredNameIsValid = !isEmpty(enteredName);
+    const enteredStreetIsValid = !isEmpty(enteredStreet);
+    const enteredCityIsValid = !isEmpty(enteredCity);
+    const enteredPostalCodeIsValid = isFiveChars(enteredPostalCode)
+    
+    // form validation
+    const formIsValid =
+      enteredNameIsValid &&
+      enteredStreetIsValid &&
+      enteredCityIsValid &&
+      enteredPostalCodeIsValid
+
+      if(!formIsValid){
+        return;
+      }
+      // submit the cart data
   };
 
   return (
     <form className={classes.form} onSubmit={confirmHandler}>
       <div className={classes.control}>
         <label htmlFor='name'>Your Name</label>
-        <input type='text' id='name' ref={nameInputRef}/>
+        <input type='text' id='name' ref={nameInputRef} />
       </div>
       <div className={classes.control}>
         <label htmlFor='street'>Street</label>
-        <input type='text' id='street' ref={streetInputRef}/>
+        <input type='text' id='street' ref={streetInputRef} />
       </div>
       <div className={classes.control}>
         <label htmlFor='postal'>Postal Code</label>
-        <input type='text' id='postal' ref={postalCodeInputRef}/>
+        <input type='text' id='postal' ref={postalCodeInputRef} />
       </div>
       <div className={classes.control}>
         <label htmlFor='city'>City</label>
-        <input type='text' id='city' ref={cityInputRef}/>
+        <input type='text' id='city' ref={cityInputRef} />
       </div>
       <div className={classes.actions}>
         <button type='button' onClick={props.onCancel}>
