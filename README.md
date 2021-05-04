@@ -72,4 +72,7 @@ Use this json file in order to populate de firebase realtime database:
 📷 Order received into firebase
 #####
 ![screenshot3](screenshots/Screenshot_4.jpg)
-
+####
+📷 Order sent successfully
+#####
+![screenshot3](screenshots/Screenshot_5.jpg)
