@@ -1,6 +1,11 @@
 import classes from './Checkout.module.css';
 
 const Checkout = (props) => {
+  const confirmHandler = (event) => {
+    event.preventDefault();
+    console.log('confirm');
+  }
+
   return (
     <form>
       <div className={classes.control}>
@@ -20,7 +25,7 @@ const Checkout = (props) => {
         <input type="text" id="city" />
       </div>
       <button type="button" onClick={props.onCancel}>Cancel</button>
-      <button>Confirm</button>
+      <button onClick={confirmHandler}>Confirm</button>
     </form>
   )
 }
